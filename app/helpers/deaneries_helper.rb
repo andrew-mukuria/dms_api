@@ -1,0 +1,2 @@
+module DeaneriesHelper
+end
