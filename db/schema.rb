@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 201502]=110718) do
+ActiveRecord::Schema.define(version: 20150223110718) do
 
   create_table "apikeys", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,19 +28,11 @@ ActiveRecord::Schema.define(version: 201502]=110718) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "deanery_controllers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "diocese_models", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "dioceses", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 45
+    t.string   "in_charge",  limit: 45
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "members", force: :cascade do |t|

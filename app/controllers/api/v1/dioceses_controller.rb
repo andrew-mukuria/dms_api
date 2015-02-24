@@ -1,13 +1,21 @@
 module API
     module V1
         class DiocesesController < ApplicationController
-            before_filter :restrict_access
+            #            before_filter :restrict_access
             before_action :set_diocese, only: [:show, :edit, :update, :destroy]
 
             # GET /dioceses
             # GET /dioceses.json
             def index
                 @dioceses = Diocese.all
+                respond_to do |format|
+                    format.html { render :new }
+                    format.json { render json: JSON.pretty_generate(@dioceses.to_a.map(&:serializable_hash)) }
+                    format.csv do
+                        headers['Content-Disposition'] = "attachment; filename=\"diocese-list\""
+                        headers['Content-Type'] ||= 'text/csv'
+                    end
+                end
             end
 
             # GET /dioceses/1
