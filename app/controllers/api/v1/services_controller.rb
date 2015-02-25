@@ -1,13 +1,21 @@
 module API
     module V1
         class ServicesController < ApplicationController
-            before_filter :restrict_access
+            # before_filter :restrict_access
             before_action :set_service, only: [:show, :edit, :update, :destroy]
 
             # GET /services
             # GET /services.json
             def index
-                @services = Service.all
+                @services = Service.joins(:parish).select(:id, 'services.name', 'parishes.name as parish_name','parishes.in_charge')
+                respond_to do |format|
+                  format.html { render :new }
+                  format.json { render json: JSON.pretty_generate(@services.to_a.map(&:serializable_hash)) }
+                  format.csv do
+                    headers['Content-Disposition'] = "attachment; filename=\"parish-list\""
+                    headers['Content-Type'] ||= 'text/csv'
+                  end
+                end
             end
 
             # GET /services/1

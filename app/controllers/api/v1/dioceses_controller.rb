@@ -15,7 +15,7 @@ module API
                         headers['Content-Disposition'] = "attachment; filename=\"diocese-list\""
                         headers['Content-Type'] ||= 'text/csv'
                     end
-                end
+                  end
             end
 
             # GET /dioceses/1

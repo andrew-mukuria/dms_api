@@ -49,13 +49,19 @@ ActiveRecord::Schema.define(version: 20150223110718) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 45
+    t.datetime "date"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "parish_id",  limit: 4,  null: false
   end
+
+  add_index "services", ["parish_id"], name: "parish_idx", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "services", "parishes", name: "parish"
 end
