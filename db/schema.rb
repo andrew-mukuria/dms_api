@@ -50,10 +50,11 @@ ActiveRecord::Schema.define(version: 20150223110718) do
 
   create_table "services", force: :cascade do |t|
     t.string   "name",       limit: 45
+    t.text     "content",    limit: 65535
     t.datetime "date"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "parish_id",  limit: 4,  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "parish_id",  limit: 4,     null: false
   end
 
   add_index "services", ["parish_id"], name: "parish_idx", using: :btree
