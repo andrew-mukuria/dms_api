@@ -81,7 +81,7 @@ module API
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def parish_params
-        params[:parish]
+        params.require(:parish).permit(:name, :in_charge, :location, :updated_at, :created_at)
       end
     end
   end
