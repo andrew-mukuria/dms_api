@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150223110718) do
   create_table "services", force: :cascade do |t|
     t.string   "name",       limit: 45
     t.text     "content",    limit: 65535
+    t.text     "tags",       limit: 65535
     t.datetime "date"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false

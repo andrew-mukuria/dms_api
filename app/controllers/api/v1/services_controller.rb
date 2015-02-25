@@ -7,7 +7,7 @@ module API
             # GET /services
             # GET /services.json
             def index
-                @services = Service.joins(:parish).select(:id, 'services.name', 'parishes.name as parish_name','parishes.in_charge')
+                @services = Service.joins(:parish).select(:id, 'services.name', 'parishes.name as parish_name','parishes.in_charge',:content,:tags)
                 respond_to do |format|
                   format.html { render :new }
                   format.json { render json: JSON.pretty_generate(@services.to_a.map(&:serializable_hash)) }
