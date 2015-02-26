@@ -55,7 +55,7 @@ module API
         respond_to do |format|
           if @parish.update(parish_params)
             format.html { redirect_to @parish, notice: 'Parish was successfully updated.' }
-            format.json { render :show, status: :ok, location: @parish }
+            format.json { render json:@parish, status: :updated }
           else
             format.html { render :edit }
             format.json { render json: @parish.errors, status: :unprocessable_entity }
