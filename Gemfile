@@ -1,7 +1,9 @@
 source 'http://rubygems.org'
-#Use MYSQL
+# Rack Middleware for handling Cross-Origin Resource Sharing (CORS), which makes cross-origin AJAX possible.
+gem 'rack-cors', :require => 'rack/cors'
+# Use MYSQL
 gem 'mysql', '~> 2.9.1'
-#RAILS API
+# RAILS API
 gem 'rails-api'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -38,10 +40,24 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  # Capistrano
+  gem 'capistrano'
+
+  # rails specific capistrano funcitons
+  gem 'capistrano-rails'
+
+  # integrate bundler with capistrano
+  gem 'capistrano-bundler'
+
+  # if you are using RBENV
+  gem 'capistrano-rbenv'
+
+  # Use the Unicorn app server
+  gem 'unicorn'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
