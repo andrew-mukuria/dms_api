@@ -40,6 +40,21 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  # Capistrano
+  gem 'capistrano'
+
+  # rails specific capistrano funcitons
+  gem 'capistrano-rails'
+
+  # integrate bundler with capistrano
+  gem 'capistrano-bundler'
+
+  # if you are using RBENV
+  gem 'capistrano-rbenv'
+
+  # Use the Unicorn app server
+  gem 'unicorn'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
