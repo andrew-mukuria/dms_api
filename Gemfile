@@ -52,8 +52,8 @@ group :development, :test do
   # if you are using RBENV
   gem 'capistrano-rbenv'
 
-  # Use the Unicorn app server
-  gem 'unicorn'
+  # Use the thin app server
+  gem 'thin'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
