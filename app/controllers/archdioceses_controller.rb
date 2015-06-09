@@ -1,5 +1,3 @@
-module Api
-  module V1
 class ArchdiocesesController < ApplicationController
   before_action :set_archdiocese, only: [:show, :update, :destroy]
 
@@ -58,6 +56,4 @@ class ArchdiocesesController < ApplicationController
     def archdiocese_params
       params.require(:archdiocese).permit(:name)
     end
-end
-end
 end

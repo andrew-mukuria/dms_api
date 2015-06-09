@@ -1,5 +1,0 @@
-<%- headers = ['Name', 'In Charge'] -%>
-<%= CSV.generate_line headers %>
-<%- @dioceses.each do |diocese| -%>
-  <%= CSV.generate_line([diocese.name, diocese.in_charge]) %>
-<%- end -%>

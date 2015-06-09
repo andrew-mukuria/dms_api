@@ -1,5 +1,3 @@
-module Api
-  module V1
 class ParishesController < ApplicationController
   before_action :set_parish, only: [:show, :update, :destroy]
 
@@ -59,6 +57,3 @@ class ParishesController < ApplicationController
       params.require(:parish).permit(:name)
     end
 end
-end
-end
-

@@ -11,17 +11,12 @@ class ArchdiocesesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:archdioceses)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create archdiocese" do
     assert_difference('Archdiocese.count') do
-      post :create, archdiocese: {  }
+      post :create, archdiocese: { name: @archdiocese.name }
     end
 
-    assert_redirected_to archdiocese_path(assigns(:archdiocese))
+    assert_response 201
   end
 
   test "should show archdiocese" do
@@ -29,14 +24,9 @@ class ArchdiocesesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @archdiocese
-    assert_response :success
-  end
-
   test "should update archdiocese" do
-    patch :update, id: @archdiocese, archdiocese: {  }
-    assert_redirected_to archdiocese_path(assigns(:archdiocese))
+    put :update, id: @archdiocese, archdiocese: { name: @archdiocese.name }
+    assert_response 204
   end
 
   test "should destroy archdiocese" do
@@ -44,6 +34,6 @@ class ArchdiocesesControllerTest < ActionController::TestCase
       delete :destroy, id: @archdiocese
     end
 
-    assert_redirected_to archdioceses_path
+    assert_response 204
   end
 end

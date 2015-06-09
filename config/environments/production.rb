@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Rack CORS Middle ware in Production
+  config.serve_static_assets = true
 end

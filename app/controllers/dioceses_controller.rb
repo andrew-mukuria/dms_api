@@ -1,5 +1,3 @@
-module Api
-  module V1
 class DiocesesController < ApplicationController
   before_action :set_diocese, only: [:show, :update, :destroy]
 
@@ -58,6 +56,4 @@ class DiocesesController < ApplicationController
     def diocese_params
       params.require(:diocese).permit(:name)
     end
-end
-end
 end
