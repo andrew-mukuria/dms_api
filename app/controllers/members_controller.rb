@@ -1,5 +1,3 @@
-module Api
-  module V1
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :update, :destroy]
 
@@ -56,8 +54,6 @@ class MembersController < ApplicationController
     end
 
     def member_params
-      params.require(:members).permit(:id, :name)
+      params.require(:member).permit(:name)
     end
-        end
-    end 
 end

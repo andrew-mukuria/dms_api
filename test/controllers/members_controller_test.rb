@@ -11,17 +11,12 @@ class MembersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:members)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create member" do
     assert_difference('Member.count') do
-      post :create, member: {  }
+      post :create, member: { name: @member.name }
     end
 
-    assert_redirected_to member_path(assigns(:member))
+    assert_response 201
   end
 
   test "should show member" do
@@ -29,14 +24,9 @@ class MembersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @member
-    assert_response :success
-  end
-
   test "should update member" do
-    patch :update, id: @member, member: {  }
-    assert_redirected_to member_path(assigns(:member))
+    put :update, id: @member, member: { name: @member.name }
+    assert_response 204
   end
 
   test "should destroy member" do
@@ -44,6 +34,6 @@ class MembersControllerTest < ActionController::TestCase
       delete :destroy, id: @member
     end
 
-    assert_redirected_to members_path
+    assert_response 204
   end
 end

@@ -11,17 +11,12 @@ class ServicesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:services)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create service" do
     assert_difference('Service.count') do
-      post :create, service: {  }
+      post :create, service: { name: @service.name }
     end
 
-    assert_redirected_to service_path(assigns(:service))
+    assert_response 201
   end
 
   test "should show service" do
@@ -29,14 +24,9 @@ class ServicesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @service
-    assert_response :success
-  end
-
   test "should update service" do
-    patch :update, id: @service, service: {  }
-    assert_redirected_to service_path(assigns(:service))
+    put :update, id: @service, service: { name: @service.name }
+    assert_response 204
   end
 
   test "should destroy service" do
@@ -44,6 +34,6 @@ class ServicesControllerTest < ActionController::TestCase
       delete :destroy, id: @service
     end
 
-    assert_redirected_to services_path
+    assert_response 204
   end
 end

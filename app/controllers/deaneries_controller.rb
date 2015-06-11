@@ -1,5 +1,3 @@
-module Api
-  module V1
 class DeaneriesController < ApplicationController
   before_action :set_deanery, only: [:show, :update, :destroy]
 
@@ -58,6 +56,4 @@ class DeaneriesController < ApplicationController
     def deanery_params
       params.require(:deanery).permit(:name)
     end
-end
-end
 end

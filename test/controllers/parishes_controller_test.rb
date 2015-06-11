@@ -11,17 +11,12 @@ class ParishesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:parishes)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create parish" do
     assert_difference('Parish.count') do
-      post :create, parish: {  }
+      post :create, parish: { name: @parish.name }
     end
 
-    assert_redirected_to parish_path(assigns(:parish))
+    assert_response 201
   end
 
   test "should show parish" do
@@ -29,14 +24,9 @@ class ParishesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @parish
-    assert_response :success
-  end
-
   test "should update parish" do
-    patch :update, id: @parish, parish: {  }
-    assert_redirected_to parish_path(assigns(:parish))
+    put :update, id: @parish, parish: { name: @parish.name }
+    assert_response 204
   end
 
   test "should destroy parish" do
@@ -44,6 +34,6 @@ class ParishesControllerTest < ActionController::TestCase
       delete :destroy, id: @parish
     end
 
-    assert_redirected_to parishes_path
+    assert_response 204
   end
 end

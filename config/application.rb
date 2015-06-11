@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'csv'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -23,22 +22,20 @@ module DmsApi
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    # Rack CORS Config
-    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
-      allow do
-        origins '*'
-
-        resource '/cors',
-          :headers => :any,
-          :methods => [:post],
-          :credentials => true,
-          :max_age => 0
-
-        resource '*',
-          :headers => :any,
-          :methods => [:get, :post, :delete, :put, :options, :head],
-          :max_age => 0
-      end
-    end
   end
 end
+
+# Rack CORS Middleware
+# This will allow GET, POST or OPTIONS requests from any origin on any resource
+class Application < Rails::Application
+
+    # ...
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
+
+  end
