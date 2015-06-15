@@ -12,6 +12,8 @@ gem 'spring', :group => :development
 
 gem 'thin'
 
+gem 'seed_dump'
+
 gem 'sqlite3'
 
 # Rack CORS Middleware
