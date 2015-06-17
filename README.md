@@ -2,13 +2,13 @@ DMS API
 ===
 Installation
 ------
-* run 'git clone https://github.com/KR78/dms_api.git'
+* git clone repo
 
 * run 'bundle intall' 
 
 * edit 'database.yml' file in config folder line 16 & 17 to match your database credentials
 
-* run 'db:setup'
+* run 'db:setup' to create db, load schema and seed dummy data provided for testing
 
 * run 'rails server'
 
