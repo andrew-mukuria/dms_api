@@ -168,3 +168,6 @@ Service.create!([
   {name: "dapibus", content: "Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.", tags: "risus auctor sed tristique in tempus", date: "2014-12-12 05:14:46", parish_id: 15},
   {name: "convallis", content: "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.", tags: "luctus cum sociis natoque", date: "2015-05-24 10:44:45", parish_id: 16}
 ])
+User.create!([
+  {email: "admin@senshi.com", password: "12345678", uid:"admin@senshi.com", provider:"email", confirmed_at:"2015-06-24 19:23:58", confirmation_sent_at:"2015-06-24 16:21:27"}
+])

@@ -2,6 +2,12 @@
 
 one:
   access_token: MyString
+  expires_at: 2015-06-21 17:12:16
+  user_id: 1
+  active: false
 
 two:
   access_token: MyString
+  expires_at: 2015-06-21 17:12:16
+  user_id: 1
+  active: false

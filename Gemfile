@@ -16,6 +16,12 @@ gem 'seed_dump'
 
 gem 'sqlite3'
 
+gem 'devise_token_auth'
+ 
+gem 'devise'
+
+gem 'omniauth-github'
+
 # Rack CORS Middleware
 gem 'rack-cors', :require => 'rack/cors'
 
