@@ -23,19 +23,20 @@ module DmsApi
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
-end
+
 
 # Rack CORS Middleware
 # This will allow GET, POST or OPTIONS requests from any origin on any resource
 class Application < Rails::Application
-
-    # ...
-
-    config.middleware.insert_before 0, "Rack::Cors" do
+    config.middleware.use Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
+        resource '*',
+          :headers => :any,
+          :expose  => ['access-token', 'token-type', 'client', 'expiry', 'uid'],
+          :methods => [:get, :post, :options, :delete, :put]
       end
     end
-
   end
+end
+

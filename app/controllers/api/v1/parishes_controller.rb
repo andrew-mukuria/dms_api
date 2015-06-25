@@ -56,7 +56,7 @@ class ParishesController < ApplicationController
     end
 
     def parish_params
-      params.require(:parish).permit(:name)
+      params.require(:parish).permit(:name, :in_charge, :location)
     end
 end
 end
