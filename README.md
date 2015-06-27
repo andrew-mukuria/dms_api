@@ -14,7 +14,7 @@ run 'bundle intall' in the root directory of the project
 *edit 'database.yml' file in config folder line 16 & 17 to match your database credentials
 **Create database, load schema and seed data**:
 ~~~javascript
-run 'db:setup' ##creates the database, loads the schema and seeds the data 
+run 'rake db:setup' ##creates the database, loads the schema and seeds the data 
 ~~~
 **Start the server**:
 ~~~javascript
