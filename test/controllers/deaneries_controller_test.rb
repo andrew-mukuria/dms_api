@@ -11,17 +11,12 @@ class DeaneriesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:deaneries)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create deanery" do
     assert_difference('Deanery.count') do
-      post :create, deanery: {  }
+      post :create, deanery: { name: @deanery.name }
     end
 
-    assert_redirected_to deanery_path(assigns(:deanery))
+    assert_response 201
   end
 
   test "should show deanery" do
@@ -29,14 +24,9 @@ class DeaneriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @deanery
-    assert_response :success
-  end
-
   test "should update deanery" do
-    patch :update, id: @deanery, deanery: {  }
-    assert_redirected_to deanery_path(assigns(:deanery))
+    put :update, id: @deanery, deanery: { name: @deanery.name }
+    assert_response 204
   end
 
   test "should destroy deanery" do
@@ -44,6 +34,6 @@ class DeaneriesControllerTest < ActionController::TestCase
       delete :destroy, id: @deanery
     end
 
-    assert_redirected_to deaneries_path
+    assert_response 204
   end
 end
